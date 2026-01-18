@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Programming Concepts: Visual Analysis & Interactive Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .image-section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-header {
+            background-color: #34495e;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .code-block {
+            background-color: #f8f8f8;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .concept-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* Interactive Quiz Styles */
+        .quiz-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-top: 5px solid #3498db;
+        }
+        .question-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .option-btn {
+            background-color: #f0f2f5;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: left;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1em;
+        }
+        .option-btn:hover:not(:disabled) {
+            background-color: #e2e6ea;
+            border-color: #adb5bd;
+        }
+        .option-btn.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            font-weight: bold;
+        }
+        .option-btn.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            opacity: 0.8;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.9em;
+            min-height: 20px;
+        }
+        .feedback.success { color: #28a745; }
+        .feedback.error { color: #dc3545; }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+            font-weight: bold;
+        }
+        
+        #score-display {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>C++ Programming Visual Analysis & Study Guide</h1>
+    <p>This guide provides a detailed breakdown of the code snippets, projector slides, and whiteboard diagrams extracted from the course material. It focuses on C++ fundamentals including loops, functions, conditionals, and logical tracing.</p>
+
+    <div class="image-section">
+        <div class="image-header">
+            <h2>Figure 1: Recursion and Summation</h2>
+        </div>
+        <span class="concept-tag">Recursion</span>
+        <span class="concept-tag">Functions</span>
+        <p><strong>Visual Content:</strong> The initial pages show a C++ code snippet defining a recursive function named <code>sum</code>.</p>
+        <div class="code-block">
+int sum(int x) {
+    if (x == 1) return 1; // Implied base case
+    return x + sum(x - 1);
+}
+        </div>
+        <p><strong>Detailed Explanation:</strong> The image illustrates <strong>recursion</strong>. The function <code>sum(int x)</code> calculates the summation from 1 to <code>x</code>. It stops when <code>x</code> reaches 1 (base case) and adds the current number to the result of the function called with <code>x-1</code>.</p>
+    </div>
+
+    <div class="image-section">
+        <div class="image-header">
+            <h2>Figure 2: Prime Number Logic</h2>
+        </div>
+        <span class="concept-tag">Loops</span>
+        <span class="concept-tag">Algorithms</span>
+        <p><strong>Visual Content:</strong> A function <code>bool isPrime(int x)</code>.</p>
+        <div class="code-block">
+bool isPrime(int x) {
+    int counter = 0;
+    for (int i = 1; i <= x; i++) {
+        if (x % i == 0) counter++;
+    }
+    return (counter == 2);
+}
+        </div>
+        <p><strong>Detailed Explanation:</strong> A brute-force algorithm to check for Prime numbers. It counts how many numbers divide <code>x</code> cleanly. If the count is exactly 2 (1 and itself), it returns true.</p>
+    </div>
+
+    <div class="image-section">
+        <div class="image-header">
+            <h2>Figure 3: Triangle Inequality</h2>
+        </div>
+        <span class="concept-tag">Boolean Logic</span>
+        <p><strong>Visual Content:</strong> <code>bool isTriangle(int x, int y, int z)</code>.</p>
+        <div class="code-block">
+if (x+y > z && x+z > y && y+z > x) return true;
+        </div>
+        <p><strong>Detailed Explanation:</strong> Checks if three lengths can form a triangle. All three conditions (sum of any two sides > third side) must be true using the AND (<code>&&</code>) operator.</p>
+    </div>
+
+    <div class="image-section">
+        <div class="image-header">
+            <h2>Figure 4: Do-While Loop (Guessing Game)</h2>
+        </div>
+        <span class="concept-tag">Control Flow</span>
+        <p><strong>Visual Content:</strong> A game asking for user input until a secret number is guessed.</p>
+        <p><strong>Detailed Explanation:</strong> Uses a <strong>do-while loop</strong> to ensure the code runs at least once. It gives "High" or "Low" feedback until <code>x != secretNumber</code> becomes false.</p>
+    </div>
+
+    <div class="image-section">
+        <div class="image-header">
+            <h2>Figure 5: Function Overloading</h2>
+        </div>
+        <span class="concept-tag">Polymorphism</span>
+        <p><strong>Visual Content:</strong> Multiple <code>box1</code> functions.</p>
+        <p><strong>Detailed Explanation:</strong> Demonstrates <strong>Function Overloading</strong>. <code>box1()</code>, <code>box1(int x)</code>, and <code>box1(int x, int y)</code> exist simultaneously, distinguished by their parameter lists.</p>
+    </div>
+
+    <div class="image-section">
+        <div class="image-header">
+            <h2>Figure 6: Trace Tables</h2>
+        </div>
+        <span class="concept-tag">Debugging</span>
+        <p><strong>Visual Content:</strong> Handwritten tables tracking variables.</p>
+        <p><strong>Detailed Explanation:</strong> Shows manual tracing. Columns represent variables (x, sum), and rows represent steps in execution, helping visualize logic flow over time.</p>
+    </div>
+
+    <div class="quiz-section">
+        <h1>Interactive Quiz</h1>
+        <p>Test your understanding. Click an option to see if it's correct.</p>
+        
+        <div id="quiz-container">
+            </div>
+    </div>
+
+    <div id="score-display">Score: 0 / 50</div>
+
+    <div class="footer">
+        Prepared by Qais Jazi | اعداد قيس جازي
+    </div>
+
+    <script>
+        // Quiz Data
+        const questions = [
+            // Basics
+            { q: "In the recursive `sum` function, what is the base case condition?", options: ["x == 0", "x == 1", "x == 10", "x == -1"], ans: 1 },
+            { q: "What operator is used in `isPrime` to check divisibility?", options: ["/", "%", "&", "#"], ans: 1 },
+            { q: "In `isTriangle`, how many conditions must be true for the result to be valid?", options: ["1", "2", "3", "0"], ans: 2 },
+            { q: "Which loop type is used for the 'Guessing Game'?", options: ["For loop", "While loop", "Do-while loop", "Foreach loop"], ans: 2 },
+            { q: "Having multiple functions named `box1` with different parameters is called:", options: ["Overriding", "Overloading", "Overwriting", "Inheriting"], ans: 1 },
+            { q: "What keyword is used to send text to the screen in the code?", options: ["print", "printf", "cout", "write"], ans: 2 },
+            { q: "In the Perfect Number code, the loop runs from 1 to:", options: ["n", "n + 1", "n - 1", "100"], ans: 2 },
+            { q: "The variable `olbah` in the power calculation code acts as:", options: ["An adder", "A divisor", "A modulus container", "A multiplication accumulator"], ans: 3 },
+            { q: "In the days of the week code, what input triggers the `else` block?", options: ["1", "7", "5", "9"], ans: 3 },
+            { q: "Which escape sequence creates a horizontal tab?", options: ["\\n", "\\t", "\\b", "\\a"], ans: 1 },
+
+            // Logic Tracing
+            { q: "If `isPrime(4)` is called, what is the final `counter` value?", options: ["1 (divisor: 1)", "2 (divisors: 1, 2)", "3 (divisors: 1, 2, 4)", "0"], ans: 2 },
+            { q: "If `sum(3)` is called, what is the order of calculation?", options: ["3 + 2 + 1", "1 + 2 + 3", "3 * 2 * 1", "3 + 3 + 3"], ans: 0 },
+            { q: "In manual power code, if x=2 and y=0 (logic i<=y), what is output?", options: ["0", "1", "2", "Error"], ans: 1 },
+            { q: "True/False: The `do-while` loop executes code BEFORE checking the condition.", options: ["True", "False"], ans: 0 },
+            { q: "In trace tables, what happens to old variable values?", options: ["Stored in history", "Crossed out/Overwritten", "Printed to screen", "Remained valid"], ans: 1 },
+            { q: "If `isTriangle(1, 10, 12)` is called, the output is:", options: ["True", "False"], ans: 1 },
+            { q: "Loop `for(int i=1; i<=5; i++) cout << i;` prints:", options: ["12345", "1234", "01234", "54321"], ans: 0 },
+            { q: "Condition to check if a number is even:", options: ["x % 2 == 0", "x % 2 == 1", "x / 2 == 0", "x * 2 == 1"], ans: 0 },
+            { q: "If user enters 'A' for operator `o` in the calculator, what happens?", options: ["Adds numbers", "Subtracts numbers", "Prints 'Not valid operation'", "Crashes"], ans: 2 },
+            { q: "What is `sum` for input 6 in 'Perfect Number' checker?", options: ["5", "6", "12", "1"], ans: 1 },
+
+            // Code Analysis
+            { q: "Why is `counter` initialized to 0 in `isPrime`?", options: ["Global requirement", "To count accurately from zero", "Primes are 0", "Saves memory"], ans: 1 },
+            { q: "The code `x += 1` is equivalent to:", options: ["x = x + 1", "x = 1", "x = x * 1", "x = +1"], ans: 0 },
+            { q: "In `(x+y > z && ...)`: what does `&&` mean?", options: ["OR", "NOT", "AND", "XOR"], ans: 2 },
+            { q: "What header file is included in most slides?", options: ["stdio.h", "iostream", "math.h", "string.h"], ans: 1 },
+            { q: "`using namespace std;` avoids typing what prefix?", options: ["std::", "cpp::", "main::", "void::"], ans: 0 },
+            { q: "Three main components of loops identified on the whiteboard:", options: ["Start, Stop, Step (Initial, Condition, Update)", "Input, Process, Output", "Int, Float, Char", "If, Else, Switch"], ans: 0 },
+            { q: "How does the manual power loop terminate?", options: ["When `olbah` > `x`", "When `i` > `y`", "When `x` is 0", "Never"], ans: 1 },
+            { q: "In `cout << l * w;`, the `*` symbol is:", options: ["Pointer", "Multiplication", "Exponentiation", "Dereference"], ans: 1 },
+            { q: "The code `cin >> x >> y` allows:", options: ["Printing two vars", "Inputting two vars consecutively", "Bitwise shifting", "Comparing x and y"], ans: 1 },
+            { q: "`cout << endl << endl;` produces:", options: ["One blank line", "Two blank lines", "Text 'endl'", "Error"], ans: 1 },
+
+            // Intermediate
+            { q: "Which variable type was used for `average`?", options: ["int", "float", "char", "bool"], ans: 1 },
+            { q: "If recursion lacks a base case, what happens?", options: ["Works normally", "Stack Overflow/Infinite Loop", "Returns 0", "Compiler fixes it"], ans: 1 },
+            { q: "Why does Perfect Number loop stop at `n-1`?", options: ["Save time", "Number isn't a proper divisor of itself", "Syntax error otherwise", "Typo"], ans: 1 },
+            { q: "`x++` is known as:", options: ["Pre-increment", "Post-increment", "Decrement", "Assignment"], ans: 1 },
+            { q: "True/False: Variables in `main` are visible in `void box1()`.", options: ["True", "False"], ans: 1 },
+            { q: "Return type of `isTriangle` is:", options: ["int", "void", "bool", "string"], ans: 2 },
+            { q: "In `price * 1.16`, what does 1.16 likely represent?", options: ["Discount", "16% Tax", "Division", "Constant"], ans: 1 },
+            { q: "`box1(a, b)` calls the version accepting:", options: ["No args", "One string", "Two integers", "One float"], ans: 2 },
+            { q: "`sum += x` inside a loop makes `sum` an:", options: ["Index", "Accumulator", "Iterator", "Array"], ans: 1 },
+            { q: "`if (x)` works for x=5 because:", options: ["5 is non-zero (true)", "C++ assumes true", "It doesn't work", "Keyword"], ans: 0 },
+
+            // Advanced
+            { q: "Logic `if (x > max) max = x;` finds:", options: ["Sum", "Average", "Maximum", "Minimum"], ans: 2 },
+            { q: "To print quotes in `\"LOVE\"`, which escape char is used?", options: ["\\n", "\\t", "\\\"", "\\'"], ans: 2 },
+            { q: "The screenshots show which type of tool?", options: ["Word", "Online Compiler/IDE", "Photoshop", "Excel"], ans: 1 },
+            { q: "Loop `while (1)` results in:", options: ["Run once", "Run zero times", "Infinite loop", "Error"], ans: 2 },
+            { q: "In nested loops `for(i){ for(j) }`, inner loop runs:", options: ["Once per outer iteration", "Once total", "Before outer", "Randomly"], ans: 0 },
+            { q: "`(num1 + num2) / 2` calculates:", options: ["Modulus", "Product", "Average", "Remainder"], ans: 2 },
+            { q: "True/False: Manual tracing is discouraged.", options: ["True", "False"], ans: 1 },
+            { q: "Calling `box1()` (prints 'A') multiple times creates:", options: ["Circle", "Vertical column", "Horizontal line", "Diagonal"], ans: 1 },
+            { q: "The currency code converts JD to:", options: ["EUR", "YEN", "USD", "GBP"], ans: 2 },
+            { q: "If `cin >> int_var` receives text, what happens?", options: ["Explosion", "Error state/Unpredictable", "Auto-correct", "Email developer"], ans: 1 }
+        ];
+
+        let score = 0;
+        const quizContainer = document.getElementById('quiz-container');
+        const scoreDisplay = document.getElementById('score-display');
+
+        function initQuiz() {
+            questions.forEach((item, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question-container';
+                
+                // Question Text
+                const qText = document.createElement('div');
+                qText.className = 'question-text';
+                qText.innerText = `${index + 1}. ${item.q}`;
+                qDiv.appendChild(qText);
+
+                // Options Grid
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options-grid';
+
+                // Feedback div
+                const feedback = document.createElement('div');
+                feedback.className = 'feedback';
+                feedback.id = `feedback-${index}`;
+
+                item.options.forEach((opt, optIndex) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerText = opt;
+                    btn.onclick = () => checkAnswer(btn, optIndex, item.ans, index, optionsDiv, feedback);
+                    optionsDiv.appendChild(btn);
+                });
+
+                qDiv.appendChild(optionsDiv);
+                qDiv.appendChild(feedback);
+                quizContainer.appendChild(qDiv);
+            });
+            scoreDisplay.style.display = 'block';
+        }
+
+        function checkAnswer(selectedBtn, selectedIndex, correctIndex, qIndex, container, feedback) {
+            // Disable all buttons in this question
+            const buttons = container.getElementsByClassName('option-btn');
+            for (let btn of buttons) {
+                btn.disabled = true;
+                // Highlight the correct answer regardless
+                if (btn.innerText === questions[qIndex].options[correctIndex]) {
+                    btn.classList.add('correct');
+                }
+            }
+
+            if (selectedIndex === correctIndex) {
+                // Correct
+                score++;
+                feedback.innerText = "Correct! Great job.";
+                feedback.className = "feedback success";
+            } else {
+                // Incorrect
+                selectedBtn.classList.add('incorrect');
+                feedback.innerText = `Incorrect. The right answer was: ${questions[qIndex].options[correctIndex]}`;
+                feedback.className = "feedback error";
+            }
+            
+            updateScore();
+        }
+
+        function updateScore() {
+            scoreDisplay.innerText = `Score: ${score} / ${questions.length}`;
+        }
+
+        // Start
+        initQuiz();
+
+    </script>
+</body>
+</html>
